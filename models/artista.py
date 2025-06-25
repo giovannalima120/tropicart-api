@@ -1,9 +1,7 @@
 class Artista:
-    idAtual = 1
-    artistas = []
-
-    def __init__ (self, username, nome, email, senha, dataNasc, local, biografia):
-        self.id = Artista.idAtual
+   
+    def __init__ (self, id, username, nome, email, senha, dataNasc, local, biografia):
+        self.id = id
         self.username = username
         self.nome = nome
         self.email = email
@@ -11,4 +9,17 @@ class Artista:
         self.dataNasc = dataNasc
         self.local = local
         self.biografia = biografia
-        Artista.idAtual += 1
+
+
+    def to_dict(self):
+        return{
+            "id" : self.id,
+            "username" : self.username,
+            "nome": self.nome,
+            "email": self.email,
+            "senha": self.senha,
+            "dataNasc": self.dataNasc,
+            "local" : self.local,
+            "biografia": self.biografia
+        }
+    
