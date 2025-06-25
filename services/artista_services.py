@@ -27,7 +27,7 @@ def buscarUsername(artistaUsername):
     return None
 
 def criarArtista(dados):
-    artista = Artista(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["dataNasc"], dados["local"], dados["biografia"])
+    artista = Artista(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["dataNasc"], dados["local"], dados["biografia"], dados["categoria"])
     artistas.append(artista)
     return artista.to_dict()
 
@@ -42,6 +42,7 @@ def atualizarPorId(id, novosDados):
        artistaEncontrado.dataNasc = novosDados.get("dataNasc", artistaEncontrado.dataNasc)
        artistaEncontrado.local = novosDados.get("local", artistaEncontrado.local)
        artistaEncontrado.biografia = novosDados.get("biografia", artistaEncontrado.biografia)
+       artistaEncontrado.categoria = novosDados.get("categoria", artistaEncontrado.categoria)
 
     return artistaEncontrado
 
