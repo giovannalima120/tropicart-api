@@ -31,16 +31,16 @@ def listarVaga(id):
 
 
 def criarVaga(dados):
-    vaga = Vaga(gerarId(), dados["titulo"], dados["descricao"], dados["local"], dados["data"])
-    empresas.append(vaga)
+    vaga = Vaga(gerarId(), dados["titulo"], dados["descricao"], dados["local"], dados["data"], dados["empresaId"])
+    vagas.append(vaga)
     return vaga.to_dict()
 
 
-def deletarEmpresas(id):
-    global empresas
+def deletarVagas(id):
+    global vagas
 
-    empresaEncontrada = listarVaga(id)  
-    if empresaEncontrada:
+    vagaEncontrada = listarVaga(id)  
+    if vagaEncontrada:
         empresas = [u for u in empresas if u.id != id]   
         return True
     else: 
