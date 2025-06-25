@@ -19,15 +19,10 @@ def listarEmpresa(id):
             return u
     return None
 
-def buscarUsername(empresaUsername):
-    for empresa in empresaUsername:
-        if empresa.username == empresaUsername:
-            return empresa
-    return None
 
 def criarEmpresa(dados):
     empresa = Empresa(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["local"], dados["cnpj"], dados["descricao"])
-    artistas.append(empresa)
+    empresas.append(empresa)
     return empresa.to_dict()
 
 def atualizarPorId(id, novosDados):
@@ -44,8 +39,8 @@ def atualizarPorId(id, novosDados):
 
     return empresaEncontrada
 
-def deletarArtista(id):
-    global artistas
+def deletarEmpresas(id):
+    global empresas
 
     empresaEncontrada = listarEmpresa(id)  
     if empresaEncontrada:
