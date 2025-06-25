@@ -1,9 +1,7 @@
 class Empresa:
-    idAtual = 1
-    empresas = []
 
-    def __init__ (self, username, nome, email, senha, local, cnpj, descricao):
-        self.id = Empresa.idAtual
+    def __init__ (self, id, username, nome, email, senha, local, cnpj, descricao):
+        self.id = id
         self.username = username
         self.nome = nome
         self.email = email
@@ -11,3 +9,15 @@ class Empresa:
         self.local = local
         self.cnpj = cnpj
         self.descricao = descricao
+    
+    def to_dict(self):
+        return{
+            "id" : self.id,
+            "username" : self.username,
+            "nome": self.nome,
+            "email": self.email,
+            "senha": self.senha,
+            "local" : self.local,
+            "cnpj": self.cnpj,
+            "descricao": self.descricao
+        }

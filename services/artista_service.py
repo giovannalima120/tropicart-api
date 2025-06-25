@@ -9,7 +9,7 @@ def gerarId():
     idAtual += 1
     return idAtual
 
-def listarUsuarios():
+def listarArtistas():
     lista = [u.to_dict() for u in artistas]
     return lista
     
@@ -27,7 +27,7 @@ def buscarUsername(artistaUsername):
     return None
 
 def criarArtista(dados):
-    artista = Artista(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["dataNasc"], dados["local", dados["biografia"]])
+    artista = Artista(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["dataNasc"], dados["local"], dados["biografia"])
     artistas.append(artista)
     return artista.to_dict()
 
