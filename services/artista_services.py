@@ -21,7 +21,7 @@ def listarArtista(id):
     return None
 
 def buscarUsername(artistaUsername):
-    for artista in artistaUsername:
+    for artista in artistas:  
         if artista.username == artistaUsername:
             return artista
     return None
