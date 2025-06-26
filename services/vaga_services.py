@@ -32,8 +32,8 @@ def criarVaga(dados):
         gerarId(),
         dados["titulo"],
         dados["descricao"],
-        dados["categoria"],
         dados["local"],
+        dados["categoria"],
         dados["empresaId"]
     )
     vagas.append(vaga)
