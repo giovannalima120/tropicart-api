@@ -26,6 +26,13 @@ def buscarUsername(artistaUsername):
             return artista
     return None
 
+def emailDuplicado(email):
+    for artista in artistas:
+        if artista.email == email:
+            return True
+    return False
+
+
 def criarArtista(dados):
     artista = Artista(gerarId(), dados["username"], dados["nome"], dados["email"], dados["senha"], dados["dataNasc"], dados["local"], dados["biografia"], dados["categoria"])
     artistas.append(artista)
