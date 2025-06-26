@@ -5,7 +5,9 @@ from routes.vaga import vaga_bp
 
 app = Flask(__name__)
 
-app.register_blueprint(usuario_bp)
+app.register_blueprint(artista_bp)
+app.register_blueprint(empresa_bp)
+app.register_blueprint(vaga_bp)
 
 if __name__ == "__main__":
     app.run(debug=True)
