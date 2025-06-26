@@ -14,10 +14,24 @@ def listarEmpresas():
     
 
 def listarEmpresa(id):
-    for u in empresas:
-        if u.id == id:
-            return u
+    if not isinstance(id, int) or id <= 0:
+        return None
+    for empresa in empresas:
+        if empresa.id == id:
+            return empresa
     return None
+
+def emailDuplicado(email):
+    for empresa in empresas:
+        if empresa.email == email:
+            return True
+    return False
+
+def cnpjDuplicado(cnpj):
+    for empresa in empresas:
+        if empresa.cnpj == cnpj:
+            return True
+    return False
 
 
 def criarEmpresa(dados):
@@ -39,12 +53,10 @@ def atualizarPorId(id, novosDados):
 
     return empresaEncontrada
 
-def deletarEmpresas(id):
+def deletarEmpresa(id):  
     global empresas
-
-    empresaEncontrada = listarEmpresa(id)  
+    empresaEncontrada = listarEmpresa(id)
     if empresaEncontrada:
-        empresas = [u for u in empresas if u.id != id]   
+        empresas = [e for e in empresas if e.id != id]
         return True
-    else: 
-        return False  
+    return False
