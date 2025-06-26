@@ -1,0 +1,416 @@
+type: collection.insomnia.rest/5.0
+name: api-tropicart
+meta:
+  id: wrk_4c6372d786cf49359d1d8f90188fc89d
+  created: 1750908645071
+  modified: 1750908645071
+collection:
+  - name: artista
+    meta:
+      id: fld_f6d8123df8d04338988bba3683ba6b1a
+      created: 1750908672630
+      modified: 1750910302301
+      sortKey: -1750908672630
+    children:
+      - url: "{{ _.url }}/artistas"
+        name: Listar artistas
+        meta:
+          id: req_7204aaa08ff943d48a5880ef1a2cd8cb
+          created: 1750908704815
+          modified: 1750909902885
+          isPrivate: false
+          sortKey: -1750909755861
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/artistas/1"
+        name: Listar artista por ID
+        meta:
+          id: req_ac07a13573f74839930fae89432274a9
+          created: 1750908795527
+          modified: 1750910152911
+          isPrivate: false
+          sortKey: -1750909755811
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/artistas/username/maria123"
+        name: Listar artista por username
+        meta:
+          id: req_d90865c3108849a28402bfbb8bde35af
+          created: 1750908797619
+          modified: 1750909907439
+          isPrivate: false
+          sortKey: -1750909755786
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/artistas"
+        name: Criar artista
+        meta:
+          id: req_9c9efcd3d7874f898bd1fa555abe534a
+          created: 1750908799595
+          modified: 1750909910705
+          isPrivate: false
+          sortKey: -1750909755773.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 1,
+              "username": "maria123",
+               "nome": "Maria Eduarda",
+               "email": "mari@gmail.com",
+               "senha": "airam21#",
+               "dataNasc": "2006-07-18",
+               "local": "São Paulo",
+               "biografia":"Cantora e compositora.",
+               "categoria": "Música"   
+            }
+        parameters:
+          - id: pair_eab0c05726764a6d82016c11759860b2
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/artistas/1"
+        name: Deletar artista
+        meta:
+          id: req_5a353aead81a4f2c98b04d39d457ca3e
+          created: 1750909109915
+          modified: 1750910366123
+          isPrivate: false
+          sortKey: -1750908799695
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/artistas/1"
+        name: Atualizar artista
+        meta:
+          id: req_975f2b3b1b114c38a574e3c7d2d5de25
+          created: 1750909755761
+          modified: 1750910162218
+          isPrivate: false
+          sortKey: -1750909755761
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "maria0305",
+               "local": "Rio de Janeiro"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: empresa
+    meta:
+      id: fld_ec0e7600cea745fc9952d0b78513dfcd
+      created: 1750909669131
+      modified: 1750909669131
+      sortKey: -1749691123019.5
+    children:
+      - url: "{{ _.url }}/empresas"
+        name: Listar empresas
+        meta:
+          id: req_2bd8a037d18144ef991122ae974e8df5
+          created: 1750909669210
+          modified: 1750910014544
+          isPrivate: false
+          sortKey: -1750908799795
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/empresas/1"
+        name: Listar empresa por ID
+        meta:
+          id: req_946f055e3f0d4e07b85a131b927369f8
+          created: 1750909669212
+          modified: 1750910184708
+          isPrivate: false
+          sortKey: -1750908799745
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/empresas"
+        name: Criar empresa
+        meta:
+          id: req_a4d1186bb1524fa8983bc96d84ceb6e1
+          created: 1750909669256
+          modified: 1750910256312
+          isPrivate: false
+          sortKey: -1750908799720
+        method: POST
+        body:
+          mimeType: application/json
+          text: |2+
+             
+            { 
+               "id": 1,
+               "username": "artecia_livre",
+               "nome": "Cia Arte Livre", 
+               "email": "cialivre@arte.com",
+                "senha": "livre123",
+                "local": "São Paulo",
+               "cnpj": "12.345.678/0001-00",
+               "descricao": "Produtora de teatro independente" 
+            } 
+
+        parameters:
+          - id: pair_eab0c05726764a6d82016c11759860b2
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/empresas/1"
+        name: Deletar empresa
+        meta:
+          id: req_fce579077152443cb4ca55d5dde100b9
+          created: 1750909669260
+          modified: 1750910208180
+          isPrivate: false
+          sortKey: -1750908799695
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/empresas/1"
+        name: Atualizar empresa
+        meta:
+          id: req_81ea1f2186a64a6ba427b500a88dbd3a
+          created: 1750910004220
+          modified: 1750910193995
+          isPrivate: false
+          sortKey: -1750908799707.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "maria0305",
+               "local": "Rio de Janeiro"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: vaga
+    meta:
+      id: fld_4e83ce99a48f4122bcd4fbb15ae78fb9
+      created: 1750910309553
+      modified: 1750910309553
+      sortKey: -1750299897824.75
+    children:
+      - url: "{{ _.url }}/vagas"
+        name: Listar vagas
+        meta:
+          id: req_2a9ae84147f5412cbcba997514b146ec
+          created: 1750910309554
+          modified: 1750910344734
+          isPrivate: false
+          sortKey: -1750909755861
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/vagas/1"
+        name: Listar vaga por ID
+        meta:
+          id: req_0beb0fd2c7cf4513bd57525fd4a25ae2
+          created: 1750910309555
+          modified: 1750910350183
+          isPrivate: false
+          sortKey: -1750909755811
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/vagas"
+        name: Criar vaga
+        meta:
+          id: req_f19185b442bd4f5a90ed7c92f186a63f
+          created: 1750910309557
+          modified: 1750910433776
+          isPrivate: false
+          sortKey: -1750909755773.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 1, 
+              "titulo": "Ator para peça infantil", 
+              "descricao": "Experiência com público infantil.", 
+              "categoria": "Teatro", 
+              "local": "São Paulo", 
+              "empresaId": 3 
+            }
+        parameters:
+          - id: pair_eab0c05726764a6d82016c11759860b2
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.url }}/vagas/1"
+        name: Deletar vaga
+        meta:
+          id: req_f33ea9eae8b541099f0c8c3206ddda16
+          created: 1750910309558
+          modified: 1750910359740
+          isPrivate: false
+          sortKey: -1750908799695
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_2a2cbf39e9ee0f412646911030c82063b3e16a5d
+    created: 1750908645076
+    modified: 1750908645076
+environments:
+  name: Base Environment
+  meta:
+    id: env_2a2cbf39e9ee0f412646911030c82063b3e16a5d
+    created: 1750908645074
+    modified: 1750908660777
+    isPrivate: false
+  data:
+    url: http://127.0.0.1:5000
