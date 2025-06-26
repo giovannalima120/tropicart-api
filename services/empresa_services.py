@@ -1,6 +1,6 @@
 from models.empresa import Empresa
 
-idAtual = 1
+idAtual = 0
 empresas = []
 
 def gerarId():

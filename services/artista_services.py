@@ -1,6 +1,6 @@
 from models.artista import Artista
 
-idAtual = 1
+idAtual = 0
 artistas = []
 
 

@@ -1,6 +1,6 @@
 from models.vaga import Vaga
 
-idAtual = 1
+idAtual = 0
 vagas = []
 
 def gerarId():
