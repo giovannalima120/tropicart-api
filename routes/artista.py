@@ -4,66 +4,57 @@ from utils.erros import respostaErro
 
 artista_bp = Blueprint("artistas", __name__)
 
-@artista_bp.route("/artistas", methods=["GET"])
-
-def listar():
-    try:
-        artistas = Artista.listarArtistas()
-        return jsonify(artistas), 200
-    except Exception:
-        return respostaErro(500, "ERRO_SERVIDOR", "Erro interno no servidor. Tente novamente mais tarde.")
-
 @artista_bp.route("/artistas/<int:id>", methods=["GET"])
 def listarPorId(id):
-    try:
-        id = int(id)
-    except ValueError:
-        return respostaErro(400, "ID_INVALIDO", "O ID fornecido é inválido.")
-
-    artista = Artista.listarPorId(id)
+    artista = listarArtista(id)
     if not artista:
         return respostaErro(404, "ARTISTA_NAO_ENCONTRADO", "O artista informado não foi encontrado.")
-
     return jsonify(artista.to_dict()), 200
-
 
 @artista_bp.route("/artistas/username/<username>", methods=["GET"])
 def buscarPorUsername(username):
     if not username:
         return respostaErro(400, "USUARIO_INVALIDO", "O usuário fornecido é inválido.")
-
-    for artista in Artista._banco:
-        if artista.username == username:
-            return jsonify(artista.to_dict()), 200
-
-    return respostaErro(404, "ARTISTA_NAO_ENCONTRADO", "O artista informado não foi encontrado.")
+    artista = buscarUsername(username)
+    if not artista:
+        return respostaErro(404, "ARTISTA_NAO_ENCONTRADO", "O artista informado não foi encontrado.")
+    return jsonify(artista.to_dict()), 200
 
 @artista_bp.route("/artistas", methods=["POST"])
 def criar():
     dados = request.json
+    campos_necessarios = ["username", "nome", "email", "senha", "dataNasc", "local", "biografia", "categoria"]
 
-    campos = ["username", "nome", "email", "senha", "dataNasc", "local", "biografia", "categoria"]
-    if not all(campo in dados for campo in campos):
+    if not dados or not all(campo in dados for campo in campos_necessarios):
         return respostaErro(400, "DADOS_INVALIDOS", "Dados inválidos.")
 
-    for artista in Artista.artistas:
-        if artista.email == dados["email"]:
-            return respostaErro(409, "EMAIL_DUPLICADO", "Este email já está em uso.")
+    if emailDuplicado(dados["email"]):
+        return respostaErro(409, "EMAIL_DUPLICADO", "Este email já está em uso.")
 
     novoArtista = criarArtista(dados)
     return jsonify(novoArtista), 201
 
-@artista_bp.route("/artistas", methods=["PUT"])
+@artista_bp.route("/artistas/<int:id>", methods=["PUT"])
 def atualizar(id):
     dados = request.json
-
     campos_validos = ["username", "nome", "email", "senha", "dataNasc", "local", "biografia", "categoria"]
+
     if not dados or not any(campo in dados for campo in campos_validos):
-        return respostaErro(400, "DADOS_INVALIDOS", "Os dados são inválidos ou ausentes.")
+        return respostaErro(400, "DADOS_INVALIDOS", "Os dados são inválidos.")
 
-    artista = Artista.atualizar_por_id(id, dados)
-
+    artista = atualizarPorId(id, dados)
     if not artista:
         return respostaErro(404, "ARTISTA_NAO_ENCONTRADO", "Artista não encontrado.")
 
     return jsonify(artista.to_dict()), 200
+
+@artista_bp.route("/artistas/<int:id>", methods=["DELETE"])
+def deletar(id):
+    if not isinstance(id, int) or id <= 0:
+        return respostaErro(400, "ID_INVALIDO", "O ID é inválido.")
+
+    sucesso = deletarArtista(id)
+    if not sucesso:
+        return respostaErro(404, "ARTISTA_NAO_ENCONTRADO", "Artista não encontrado.")
+
+    return '', 204
