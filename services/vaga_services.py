@@ -40,6 +40,7 @@ def criarVaga(dados):
     return vaga.to_dict()
 
 def deletarVaga(id):
+
     global vagas
     vaga = buscarVagaPorId(id)
     if vaga:
