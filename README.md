@@ -1,5 +1,0 @@
-# tropicart-api
-
-# Bianca Biaseto Martins Ferreira
-# Caroline da Anunciação Carvalho
-# Giovanna Lima de Souza
