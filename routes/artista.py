@@ -4,6 +4,14 @@ from utils.erros import respostaErro
 
 artista_bp = Blueprint("artistas", __name__)
 
+@artista_bp.route("/artistas", methods=["GET"])
+def listar():
+    try:
+        artistas = listarArtistas()
+        return jsonify(artistas), 200
+    except Exception:
+        return respostaErro(500, "ERRO_SERVIDOR", "Erro interno no servidor. Tente novamente mais tarde.")
+
 @artista_bp.route("/artistas/<int:id>", methods=["GET"])
 def listarPorId(id):
     artista = listarArtista(id)
